@@ -48,7 +48,9 @@ class TwoSums:
         required pair.
 
         Time complexity : O(nlogn) + O(n) where n = number of elements (sorting + loop) 
-        Space complexity : O(1) as we are not using any extra space
+        Space complexity : O(n) as we are not using any extra space for soted array elements
+        if we store sorted array elements in same variable then no extra space is needed then space complexity
+        will be O(1)
         '''
         nums_sort = sorted(self.nums)
         left = 0
