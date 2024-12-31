@@ -1,3 +1,5 @@
+# Subarrays are contiguous not discrete i,e elements must be asjacent to each other
+
 class MaxSubArray:
     def __init__(self, arr):
         self.arr = arr
