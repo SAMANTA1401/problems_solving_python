@@ -83,17 +83,35 @@ class MissingNumber:
         return missing_number
         
     def xor(self): # binary operation 1 xor 1 = 0 ; 0 xor 0 = 1; 1 xor 0 = 1 ; 0 xor 1 = 1
+        '''Assume the given array is: {1, 2, 4, 5} and N = 5.
+            XOR of (1 to 5) i.e. xor1 = (1^2^3^4^5)
+            XOR of array elements i.e. xor2 = (1^2^4^5)
+            XOR of xor1 and xor2 = (1^2^3^4^5) ^ (1^2^4^5)
+                        = (1^1)^(2^2)^(3)^(4^4)^(5^5)
+                        = 0^0^3^0^0 = 0^3 = 3.
+            The missing number is 3.
+            
+            Time Complexity: O(N), where N = size of array+1.
+            Reason: Here, we need only 1 loop to calculate the XOR. The loop runs for approx. N times. So, the time complexity is O(N).
+
+            Space Complexity: O(1) as we are not using any extra space.
+        '''
         xor1 = 0
         xor2 = 0
         
         for i in range(len(self.arr)):
-            xor2 =  xor2 ^ self.arr[i] # 1 xor 1 = 0
+            xor2 =  xor2 ^ self.arr[i] # 4 arr elements 3 times xor (i=0 to 3)
+            xor1 = xor1 ^ (i + 1) # 5 elements 4 times xor including missing number (1 to 4)
         
-            
+        xor1 = xor1 ^ (len(self.arr) + 1) # 5 elements 4 times xor including missing number (1 to 5)
+        
+        missing_number = xor1 ^ xor2
+        return missing_number
 
 if __name__ == '__main__':
     a = [1, 2, 4, 5]
     missing_number = MissingNumber(a)
+    print(missing_number.xor())  # Expected output: 3
     print(missing_number.summation())
     print(missing_number.hashing())  # Expected output: 3
     print(missing_number.brute_force())  # Expected output: 3
