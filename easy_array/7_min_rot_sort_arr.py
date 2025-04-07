@@ -60,6 +60,8 @@ class MinRotSortArr():
                 ans = min(ans, self.arr[mid])
                 # Eliminate the right half.
                 high = mid - 1
+                # Reduce the search space.
+        return ans
 
 
 
