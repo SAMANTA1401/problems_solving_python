@@ -82,7 +82,7 @@ class MissingNumber:
         missing_number = summation - s2
         return missing_number
         
-    def xor(self): # binary operation 1 xor 1 = 0 ; 0 xor 0 = 1; 1 xor 0 = 1 ; 0 xor 1 = 1
+    def xor(self): # binary operation 1 xor 1 = 0 ; 0 xor 0 = 0; 1 xor 0 = 1 ; 0 xor 1 = 1
         '''Assume the given array is: {1, 2, 4, 5} and N = 5.
             XOR of (1 to 5) i.e. xor1 = (1^2^3^4^5)
             XOR of array elements i.e. xor2 = (1^2^4^5)
